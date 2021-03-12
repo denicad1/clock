@@ -22,45 +22,20 @@ const intl=Intl.DateTimeFormat(`en-US`).format(time);
 clockFace.textContent=`${curTime} \n
 ${intl} is the date`;
 }
-const time=setInterval(timer,1000);
-
-// for (let i = 1; i < 2; i++) {
-    // let opt;
-    // for (let j = 1; j < 12; j++) {
-        
-    // const DorN= i===1?'AM':'PM';
-    
-    //  opt= `<option value=${String(j).padStart(2,0)}${DorN}-${String(j+1).padStart(2,0)}${DorN} >`;
-    //  wakeUp.insertAdjacentElement('afterbegin',opt);
-    // }
-    
-    // const element = array[i];
-    // const DorN= i<=12?'AM':'PM';
-    // const time=String(i).padStart(2,0);
-    // let opt= `<option value=${time}${DorN}-${time+1}${DorN} >`
-    // if (i<12) {
-    //     wakeUp.insertAdjacentElement('afterbegin',opt)
-    // }else{
-    //     opt=`<option value=${time}${DorN}-${time+1}${DorN} >`
-    // }
-
-
-    
-// }
 
 const options=(time,div)=>{
     let opt;
     for (let j = 1; j <= time; j++) {
-    // let num=String(j).padStart(2,0);
-    //  opt= `<option value="${num}">${num}</option>`;
-    //  console.log(opt,wakeHour);
-    //  wakeUp.insertAdjacentElement('afterbegin',opt);
     opt=document.createElement('option');
     opt.text=String(j).padStart(2,0);
     div.options.add(opt,j);
-    // wakeHour.insertAdjacentElement("afterbegin",opt);
 }
 }
-options(12,wakeHour);
-options(60,wakeMin);
 
+
+const init=()=>{
+    const time=setInterval(timer,1000);
+    options(12,wakeHour);
+options(60,wakeMin);
+}
+init();
