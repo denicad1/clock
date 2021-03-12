@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-.main{
-    &__clock{
-        &__title{
-            font-family: 'Open Sans', sans-serif;
+.main {
+    &__clock {
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+
+        &__face {
+            font-size: 150%;
         }
     }
 }
