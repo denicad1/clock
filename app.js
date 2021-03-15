@@ -12,6 +12,8 @@ const wakeHour=document.getElementById('wake__hour');
 const wakeMin=document.getElementById('wake__min');
 const AMPM=document.getElementById('wake__M');
 const setAlarm=document.getElementById('__time__submit');
+const alarmAlert=document.querySelector('.main__alert');
+const mainDiv=document.querySelector('.main');
 let curTime;
 const alarms= new Set;
 
@@ -46,18 +48,32 @@ const alarmHour=wakeHour.value;
 const alarmMin=wakeMin.value;
 const alarmAMPM=AMPM.value;
 const alarm=`${alarmHour}:${alarmMin}:00 ${alarmAMPM}`;
-
 alarms.add(alarm);
 
 }
 //convert set of alarms to arr and check to see if it time to set off alarm
 const alarmCheck=(Set)=>{
     if(alarms.has(curTime)){
-        //delete alarm from set and run another method to display that alarm is going off
+        //run method to display that alarm is going off
+       durOfAlarm(60);
         console.log(true);
     }
     
 }
+//what to do when alarm is going off
+const durOfAlarm=(length)=>{ 
+    let dur=length;
+    const bells=setInterval(() => {
+        dur--;
+        mainDiv.classList.toggle('main__alert');
+        if(dur===0){
+            clearInterval(bells);
+            mainDiv.classList.remove('main__alert');
+        }
+    }, 1000);
+}
+  
+
 setAlarm.addEventListener('click',alarmSet);
 //initialize
 const init=()=>{
@@ -65,4 +81,5 @@ const init=()=>{
     options(12,wakeHour,1);
 options(59,wakeMin,0);
 }
+timer();
 init();

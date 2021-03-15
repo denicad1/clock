@@ -16,6 +16,10 @@
     padding: 10% 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 150%;
+    &__alert{
+        font-size: 300%;
+        background-color: red;
+    }
     &__clock {
         
         display: flex;

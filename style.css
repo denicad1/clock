@@ -17,6 +17,11 @@
   font-size: 150%;
 }
 
+.main__alert {
+  font-size: 300%;
+  background-color: red;
+}
+
 .main__clock {
   display: -webkit-box;
   display: -ms-flexbox;
