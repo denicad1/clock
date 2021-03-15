@@ -19,7 +19,7 @@ const alarms= new Set;
 const timer= ()=>{
 const time=new Date();
 const minute= String(time.getMinutes()).padStart(2,0);
-let hour=time.getHours();
+let hour=String(time.getHours()).padStart(2,0);
 const secs=String(time.getSeconds()).padStart(2,0);
 const AMPM= hour<12?'AM':'PM';
  if (hour>12) {
@@ -29,8 +29,7 @@ curTime= `${hour}:${minute}:${secs} ${AMPM}`;
 const intl=Intl.DateTimeFormat(`en-US`).format(time); 
 clockFace.innerHTML=`${curTime} <br> ${intl} is the date`;
 //need to move this but it is here for testing
-// alarmCheck(alarms);
-console.log(curTime===`08:17:00 PM`);
+alarmCheck(alarms);
 }
 //add options to selects under clock
 const options=(time,div,start)=>{
@@ -53,13 +52,10 @@ alarms.add(alarm);
 }
 //convert set of alarms to arr and check to see if it time to set off alarm
 const alarmCheck=(Set)=>{
-    const alarmArr=Array.from(alarms);
-    alarmArr.forEach(alarm=>{
-        if(alarm===curTime){
-            console.log('alarm bell');
-            return true;
-        }
-    })
+    if(alarms.has(curTime)){
+        //delete alarm from set and run another method to display that alarm is going off
+        console.log(true);
+    }
     
 }
 setAlarm.addEventListener('click',alarmSet);
