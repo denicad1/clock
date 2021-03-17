@@ -18,20 +18,28 @@
 }
 
 .main__alert {
-  font-size: 300%;
+  transition: background-color .5s ease-in-out;
   background-color: red;
+  -webkit-transition: background-color .5s ease-in-out;
+  -moz-transition: background-color .5s ease-in-out;
+  -ms-transition: background-color .5s ease-in-out;
+  -o-transition: background-color .5s ease-in-out;
 }
 
 .main__clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   text-transform: uppercase;
-  display: inline-block;
-  border: 3px solid red;
-  height: 200px;
-  width: 60%;
-}
-
-.main__clock__title {
-  border: 3px solid rebeccapurple;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 80%;
+  width: 100%;
 }
 
 .main__clock__face {
@@ -42,15 +50,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
+  right: 20px;
 }
 
 .main__clock__alarms {
-  display: inline-block;
+  position: absolute;
+  right: 10%;
+  width: 15%;
+  font-size: 80%;
 }
 /*# sourceMappingURL=style.css.map */

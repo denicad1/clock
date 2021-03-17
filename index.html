@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>clock</title>
-</head>
-<body>
-    <div class="main ">
-        <div class="main__clock__title">it is time</div>
-        <div class="main__clock">
-            <div class="main__clock__face"><div class="main__clock__face__time"></div><div class="main__clock__face__date"></div></div>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main__clock__title"><span>The time is :</span></div>
+      <div class="main__clock">
+        <div class="main__clock__face">
+          <div class="main__clock__face__time"></div>
+          <div class="main__clock__face__date"></div>
         </div>
-        
-        <div class="main__options">
-            <select name="hours"id="wake__hour">
-                <!-- <option value='hello' >hello</option> -->
-            </select>
-            <select name="minutes" id="wake__min" class=></select>
-            <select name="AMPM" id="wake__M"><option value="AM">A.M.</option>
-            <option value="PM">P.M.</option></select>
-            <button id="__time__submit">Set Alarm</button>
-        
+        <div class="main__clock__alarms">
+          <div class="main__clock__alarms__title"><span>Alarms</span></div>
+          <div class="disp__alarms"></div>
         </div>
+      </div>
+
+      <div class="main__options">
+        <select name="hours" id="wake__hour">
+          <!-- <option value='hello' >hello</option> -->
+        </select>
+        <select name="minutes" id="wake__min"></select>
+        <select name="AMPM" id="wake__M">
+          <option value="AM">A.M.</option>
+          <option value="PM">P.M.</option>
+        </select>
+        <button id="__time__submit">Set Alarm</button>
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
