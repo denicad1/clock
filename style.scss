@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-*{
-    margin:0;
+
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.body{
-    
-}
+
+.body {}
+
 .main {
     position: relative;
     width: 100%;
@@ -16,30 +17,39 @@
     padding: 10% 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 150%;
-    &__alert{
+
+    &__alert {
         font-size: 300%;
         background-color: red;
     }
+
     &__clock {
-        
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        
+
         text-transform: uppercase;
-        &__title{
-            
-            
+
+        display: inline-block;
+        border: 3px solid red;
+        height: 200px;
+        width: 60%;
+
+        &__title {
+            border: 3px solid rebeccapurple;
         }
+
         &__face {
-            
-            border: 3px solid red;
+
+
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            height: 200px;
-            width: 40%;
+            align-items: center;
+
         }
     }
+}
+
+.main__clock__alarms {
+    display: inline-block;
+
+    &__title {}
 }

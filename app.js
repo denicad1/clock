@@ -8,12 +8,16 @@
 // const intl=Intl.DateTimeFormat(`en-US`).format(time);
 // console.log(intl);
 const clockFace=document.querySelector('.main__clock__face');
+const clockFaceTime=document.querySelector('.main__clock__face__time');
+const clockFaceDate=document.querySelector('.main__clock__face__date');
+
 const wakeHour=document.getElementById('wake__hour');
 const wakeMin=document.getElementById('wake__min');
 const AMPM=document.getElementById('wake__M');
 const setAlarm=document.getElementById('__time__submit');
 const alarmAlert=document.querySelector('.main__alert');
 const mainDiv=document.querySelector('.main');
+const alarmSect=document.querySelector('.main__clock__alarms');
 let curTime;
 const alarms= new Set;
 
@@ -29,7 +33,8 @@ const AMPM= hour<12?'AM':'PM';
  }
 curTime= `${hour}:${minute}:${secs} ${AMPM}`;
 const intl=Intl.DateTimeFormat(`en-US`).format(time); 
-clockFace.innerHTML=`${curTime} <br> ${intl} is the date`;
+clockFaceTime.innerHTML=`${curTime} `;
+clockFaceDate.innerHTML=`${intl}`;
 //need to move this but it is here for testing
 alarmCheck(alarms);
 }
@@ -49,6 +54,7 @@ const alarmMin=wakeMin.value;
 const alarmAMPM=AMPM.value;
 const alarm=`${alarmHour}:${alarmMin}:00 ${alarmAMPM}`;
 alarms.add(alarm);
+displayAlarms();
 
 }
 //convert set of alarms to arr and check to see if it time to set off alarm
@@ -72,7 +78,15 @@ const durOfAlarm=(length)=>{
         }
     }, 1000);
 }
-  
+  const displayAlarms=()=>{
+    const alarmArr=Array.from(alarms);
+    console.log(alarmArr);
+    alarmSect.innerHTML='';
+    alarmArr.forEach((cur,ind)=>{
+        alarmSect.insertAdjacentHTML('beforeend',`<div class="alarms__alarm__${ind}">${cur}</div>`);
+    })
+
+  }
 
 setAlarm.addEventListener('click',alarmSet);
 //initialize
@@ -80,6 +94,7 @@ const init=()=>{
     const time=setInterval(timer,1000);
     options(12,wakeHour,1);
 options(59,wakeMin,0);
+
 }
 
 // DISPLAY ALARMS 
