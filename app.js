@@ -81,5 +81,10 @@ const init=()=>{
     options(12,wakeHour,1);
 options(59,wakeMin,0);
 }
+
+// DISPLAY ALARMS 
+// TOGGLE ALARMS
+//SET ALARM LENGTH
+//
 timer();
 init();
