@@ -32,7 +32,8 @@ const timer = () => {
   if (hour > 12) {
     hour = String(hour % 12).padStart(2, 0);
   }
-  curTime = `${hour}:${minute}:${secs} ${AMPM}`;
+  // curTime = `${hour}:${minute}:${secs} ${AMPM}`;
+  curTime = `${hour}:${minute} ${AMPM}`;
   const intl = Intl.DateTimeFormat(`en-US`).format(time);
   clockFaceTime.innerHTML = `${curTime} `;
   clockFaceDate.innerHTML = `${intl}`;
@@ -53,7 +54,7 @@ const alarmSet = () => {
   const alarmHour = wakeHour.value;
   const alarmMin = wakeMin.value;
   const alarmAMPM = AMPM.value;
-  const alarm = `${alarmHour}:${alarmMin}:00 ${alarmAMPM}`;
+  const alarm = `${alarmHour}:${alarmMin} ${alarmAMPM}`;
   alarms.add(alarm);
   displayAlarms();
 };
@@ -61,12 +62,12 @@ const alarmSet = () => {
 const alarmCheck = (Set) => {
   if (alarms.has(curTime)) {
     //run method to display that alarm is going off
-    durOfAlarm(60);
+    durOfAlarm();
     console.log(true);
   }
 };
 //what to do when alarm is going off
-const durOfAlarm = (length) => {
+const durOfAlarm = (length = 60) => {
   let dur = length;
   const bells = setInterval(() => {
     dur--;
