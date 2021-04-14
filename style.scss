@@ -11,9 +11,12 @@ body {
     background:linear-gradient(to bottom right,rgba(0, 128, 0,.7),rgba(255, 255, 255,1)),url(images/download.jfif);
     // background: linear-gradient(to right, transparent, mistyrose),
     //   url("https://mdn.mozillademos.org/files/15525/critters.png");
+   
 }
 
 .main {
+    background-color: rgba(255, 255, 255, 0.733);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
     
     position: relative;
     width: 100%;
