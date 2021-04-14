@@ -104,5 +104,21 @@ const init = () => {
 // TOGGLE ALARMS
 //SET ALARM LENGTH
 //
+const obsFunc = (entries, observer) => {
+  const [entry] = entries;
+
+  if (entry.isIntersecting) {
+    console.log(entry);
+    console.log(observer);
+  }
+};
+const obsOpt = {
+  root: null,
+  threshold: [0],
+};
+const testObserver = new IntersectionObserver(obsFunc, obsOpt);
+const testArea = document.querySelector(".testing");
+testObserver.observe(testArea);
+
 timer();
 init();
